@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Helvetica,Arial,Sans-Serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+a {
+  color: #556bb5;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    outline: 0;
+  }
+}
+
+.pt-3 {
+  padding-top: 30px;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+

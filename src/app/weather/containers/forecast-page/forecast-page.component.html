@@ -1,0 +1,11 @@
+<article class="container pt-3">
+  <a routerLink="/weather" title="Back to cities">Back to cities</a>
+  <section>
+    <h3>Upcoming hours weather</h3>
+    <div class="forecast__items">
+      <app-forecast-card *ngFor="let forecastItem of forecast"
+                         [forecast]="forecastItem">
+      </app-forecast-card>
+    </div>
+  </section>
+</article>

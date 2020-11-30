@@ -1,0 +1,7 @@
+.forecast {
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

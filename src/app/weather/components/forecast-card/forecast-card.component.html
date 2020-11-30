@@ -1,0 +1,6 @@
+<div class="mt-2">
+  <p>{{ forecast.dt * 1000 | date: 'HH:mm' }}</p>
+  <img class="forecast__wt-icon" src="{{weatherIconsUrl + forecast.weather[0].icon}}.png">
+  <span class="forecast__temp">{{forecast.main?.temp | number:'1.0-0'}}&nbsp;<sup>o</sup>C</span>
+</div>
+

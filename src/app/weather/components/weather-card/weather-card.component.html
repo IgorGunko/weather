@@ -1,0 +1,21 @@
+<div class="city__item">
+  <a routerLink="{{city.name.toLocaleLowerCase()}}" title="{{city.weather[0].description}}">
+    <img class="city__wt-icon" src="{{weatherIconsUrl + city.weather[0].icon}}.png"
+         alt="{{city.weather[0].description}}">
+  </a>
+  <div>
+    <a routerLink="{{city.name.toLocaleLowerCase()}}"
+       title="{{city.name}}"
+       class="city__title">
+      <img src="{{cityFlagsUrl + city.sys.country.toLocaleLowerCase()}}.png"
+           alt="{{city.name}}"
+           class="city__flag">
+      <span class="city__city-name">{{city.name}}</span>
+    </a>
+    <span class="city__wt">
+      <span class="city__temp">{{city.main?.temp | number:'1.0-0'}}&nbsp;<sup>o</sup>C</span>
+      <span class="city__desc">{{city.weather[0].description}}.</span>
+      <span class="city__wind">{{city.wind?.speed}} m/s</span>
+    </span>
+  </div>
+</div>

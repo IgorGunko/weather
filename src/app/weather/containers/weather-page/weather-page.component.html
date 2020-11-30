@@ -1,0 +1,9 @@
+<section class="container pt-3">
+  <h3>Weather Now</h3>
+  <div class="city__items">
+    <app-weather-card *ngFor="let city of facade.currentWeather$ | async"
+                      [city]="city">
+    </app-weather-card>
+  </div>
+</section>
+

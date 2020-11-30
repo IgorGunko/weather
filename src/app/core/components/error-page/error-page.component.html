@@ -1,0 +1,23 @@
+<div class="error-page">
+  <div [ngSwitch]="statusCode">
+    <ng-container [ngTemplateOutlet]="error403" *ngSwitchCase="403"></ng-container>
+    <ng-container [ngTemplateOutlet]="error404" *ngSwitchCase="404"></ng-container>
+    <ng-container [ngTemplateOutlet]="defaultError" *ngSwitchDefault></ng-container>
+  </div>
+</div>
+
+<ng-template #error403>
+  <img src="public/assets/icons/error-403.svg" alt="403">
+  <p>Access Denied. You are not authorized to view this content.</p>
+</ng-template>
+
+<ng-template #error404>
+  <img src="public/assets/icons/error-404.svg" alt="404">
+  <h1>Page Not Found</h1>
+  <a routerLink="/">Go to Homepage</a>
+</ng-template>
+
+<ng-template #defaultError>
+  <img src="public/assets/icons/error-500.svg" alt="{{statusCode}}">
+  <p>The application has encountered an error. Please try again later.</p>
+</ng-template>
