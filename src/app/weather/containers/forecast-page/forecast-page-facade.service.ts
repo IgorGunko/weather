@@ -1,17 +1,25 @@
 import { Injectable } from '@angular/core';
 import { WeatherServicesModule } from '../../services/weather-services.module';
-import { WeatherApiService } from '../../services/api/weather-api.service';
+import { Store } from '@ngrx/store';
+import { IForecastPageState } from '../../store/forecast/forecast-page.state';
+import { FORECAST_REQUEST } from '../../store/forecast/forecast.actions';
+import { ForecastListItem } from '../../models/forecast.model';
+import { selectForecastList } from '../../store/forecast/forecast.selectors';
 import { Observable } from 'rxjs/index';
-import { Forecast } from '../../models/forecast.model';
 
 @Injectable({
   providedIn: WeatherServicesModule
 })
 export class ForecastPageFacadeService {
-  constructor(private weatherApiService: WeatherApiService) {
+  public forecast$: Observable<ForecastListItem[]>;
+
+  constructor(
+    private store: Store<IForecastPageState>
+  ) {
+    this.forecast$ = this.store.select(selectForecastList);
   }
 
-  getForecast(cityName): Observable<Forecast> {
-    return this.weatherApiService.getForecast(cityName);
+  getForecast(cityName): void {
+    this.store.dispatch(FORECAST_REQUEST({cityName}));
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { WeatherPageFacadeService } from './weather-page-facade.service';
 
 @Component({
@@ -7,6 +7,10 @@ import { WeatherPageFacadeService } from './weather-page-facade.service';
   styleUrls: ['./weather-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WeatherPageComponent {
+export class WeatherPageComponent implements OnInit {
   constructor(public facade: WeatherPageFacadeService) {}
+
+  ngOnInit(): void {
+    this.facade.fetchCurrentWeather();
+  }
 }

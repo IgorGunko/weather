@@ -2,6 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherPageComponent } from './weather-page.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { WeatherPageFacadeService } from './weather-page-facade.service';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { provideMockStore } from '@ngrx/store/testing';
+import { WeatherApiService } from '../../services/api/weather-api.service';
 
 describe('WeatherPageComponent', () => {
   let component: WeatherPageComponent;
@@ -12,7 +16,13 @@ describe('WeatherPageComponent', () => {
       declarations: [ WeatherPageComponent ],
       imports: [
         HttpClientTestingModule
-      ]
+      ],
+      providers: [
+        WeatherApiService,
+        WeatherPageFacadeService,
+        provideMockStore()
+      ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   });

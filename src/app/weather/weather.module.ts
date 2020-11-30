@@ -6,6 +6,9 @@ import { ForecastPageComponent } from './containers/forecast-page/forecast-page.
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import { WeatherServicesModule } from './services/weather-services.module';
 import { ForecastCardComponent } from './components/forecast-card/forecast-card.component';
+import { StoreModule } from '@ngrx/store';
+import { WEATHER_EFFECTS, WEATHER_REDUCERS, weatherKey } from './store/index';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { ForecastCardComponent } from './components/forecast-card/forecast-card.
   imports: [
     CommonModule,
     WeatherRoutingModule,
-    WeatherServicesModule
+    WeatherServicesModule,
+    StoreModule.forFeature(weatherKey, WEATHER_REDUCERS),
+    EffectsModule.forFeature(WEATHER_EFFECTS)
   ]
 })
 export class WeatherModule { }

@@ -36,7 +36,7 @@ interface Main {
   temp_kf: number;
 }
 
-interface ForecastCity {
+export interface ForecastCity {
   coord: Coord;
   id: number;
   name: string;
