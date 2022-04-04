@@ -23,6 +23,6 @@ const reducer = createReducer(INITIAL_WEATHER_PAGE_STATE,
   }))
 );
 
-export function weatherPageReducer(state: IWeatherPageState, action: Action) {
+export function weatherPageReducer(state: IWeatherPageState, action: Action): IWeatherPageState {
   return reducer(state, action);
 }

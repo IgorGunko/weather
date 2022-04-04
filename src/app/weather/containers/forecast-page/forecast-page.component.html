@@ -2,6 +2,23 @@
   <a routerLink="/weather" title="Back to cities">Back to cities</a>
   <section>
     <h3>Upcoming hours weather</h3>
+    <table class="table table--left table--inner-borders-rows">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Current Time</th>
+          <th>Sunrise</th>
+          <th>Sunset</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{facade.forecastCity}}</td>
+          <td>{{facade.forecastCity?.sunrise}}</td>
+          <td>{{facade.forecastCity?.sunset}}</td>
+        </tr>
+      </tbody>
+    </table>
     <div class="forecast__items">
       <app-forecast-card *ngFor="let forecastItem of facade.forecast$ | async"
                          [forecast]="forecastItem">

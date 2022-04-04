@@ -10,7 +10,8 @@ const reducer = createReducer(INITIAL_FORECAST_PAGE_STATE,
   })),
   on(FORECAST_REQUEST_SUCCESS, (state, {payload}) => ({
     ...state,
-    list: payload,
+    list: payload.list,
+    city: payload.city,
     status: StateStatus.Loaded
   })),
   on(FORECAST_REQUEST_FAIL, state => ({
@@ -19,6 +20,6 @@ const reducer = createReducer(INITIAL_FORECAST_PAGE_STATE,
   }))
 );
 
-export function forecastPageReducer(state: IForecastPageState, action: Action) {
+export function forecastPageReducer(state: IForecastPageState, action: Action): IForecastPageState {
   return reducer(state, action);
 }

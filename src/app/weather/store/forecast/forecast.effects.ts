@@ -18,8 +18,8 @@ export class ForecastEffects {
     this.actions$.pipe(
       ofType(ForecastActions.FORECAST_REQUEST),
       switchMap(({cityName}) => this.weatherApiService.getForecast(cityName)),
-      mergeMap((data: Forecast) => {
-        return [FORECAST_REQUEST_SUCCESS({payload: data.list})];
+      mergeMap((payload: Forecast) => {
+        return [FORECAST_REQUEST_SUCCESS({payload})];
       }),
       catchError((error: HttpErrorResponse) => [FORECAST_REQUEST_FAIL()])
     )

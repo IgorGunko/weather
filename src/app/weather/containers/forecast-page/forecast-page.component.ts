@@ -16,7 +16,7 @@ export class ForecastPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const cityName = this.route.snapshot.params['city'];
+    const cityName = this.route.snapshot.params.city;
 
     if (cityName) {
       this.facade.getForecast(cityName);
